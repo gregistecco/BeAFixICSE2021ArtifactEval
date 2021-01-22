@@ -36,7 +36,7 @@ In order to try to repair a faulty alloy specification the user needs to:
 
 2. At the **Execute** menu, the **Repair** option should be shown and must be selected.
 
-3. During the reparation process, at the right side panel, BeAFix shows information about the current state, namely: mutated expressions (original and mutated) with its corresponding [mutation operator](APPENDIX.md), and a the result of evaluating that candidate.
+3. During the reparation process, at the right side panel, BeAFix shows information about the current state, namely: mutated expressions (original and mutated) with its corresponding [mutation operator](APPENDIX.md#mutation-operators), and a the result of evaluating that candidate.
 
 4. Finally, a detailed report of the process is shown, including, if found, the fixed specification file.
    * _The repaired candidate is shown with the mutations used, the repaired specification may have some issues since the candidate writter is very simple_
