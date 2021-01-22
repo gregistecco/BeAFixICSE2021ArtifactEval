@@ -148,6 +148,7 @@ We recommend using meaningful and separate results folder for each run, depth, a
 `find benchmarks/ARepair-1B | awk '/\.als/' | xargs -I {} ./runBeAFix.sh BeAFixCLI-2.1.2.jar {} 2 0 60 AREPAIR-1B-DEPTH2`
 
 **ARepair multiple bugs**
+
 `find benchmarks/ARepair-MB/depth1granularity | awk '/\.als/' | xargs -I {} ./runBeAFix.sh BeAFixCLI-2.1.2.jar {} 2 0 60 AREPAIR-2B-GRAN1-DEPTH2`
 
 #### Merging summaries and running next depth experiments
