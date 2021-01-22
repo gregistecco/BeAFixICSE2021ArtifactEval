@@ -71,7 +71,7 @@ This replication package contains the benchmarks used in the paper. These can al
 
 ### Running the experiments
 
-Inside the folder containing the replication package contents, the following command must be executed:
+To run the docker, the command is `docker run -it drstein/beafix:2.1.2`. Inside the folder containing the replication package contents, the following command must be executed:
 
 `./runBeAFix.sh BeAFixCLI-2.1.2.jar <path to study case> <depth> <pruning> <timeout> <results folder>.`
 
