@@ -1,5 +1,5 @@
 ## Download
-
+BeAFix can be download from [here](https://sites.google.com/view/beafixevaluation/beafix).
 
 ## Installation
 
