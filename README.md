@@ -41,7 +41,7 @@ In order to try to repair a faulty alloy specification the user needs to:
 4. Finally, a detailed report of the process is shown, including, if found, the fixed specification file.
    * _The repaired candidate is shown with the mutations used, the repaired specification may have some issues since the candidate writter is very simple_
 
-5. Aditionally, at the **Option** menu, the user can set a particular configuration for BeAFix. A detailed configuration options can be found [here](APPENDIX.md).
+5. Aditionally, at the **Option** menu, the user can set a particular configuration for BeAFix. A detailed configuration options can be found [here](APPENDIX.md#-beafix-gui-configuration-options).
 
 ## Reproducing the paper experitments
 
