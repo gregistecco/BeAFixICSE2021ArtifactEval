@@ -13,7 +13,7 @@ BeAFix provides two ways of usage:
 * A *Graphical User Interface* as an extension of Alloy Analyzer, allowing the use of the tool in an interactive way. 
 
 ## Getting and Installing BeAFix
-BeAFix can be obtaing by downloading the correponding jar files (Command-Line or GUI Interfaces), or by means of docker which contains also all the replication package scripts. Detailed information about the installation can be found in [INSTALL.md](INSTALL.md).
+BeAFix can be obtaing by downloading the correponding jar files (Command-Line or GUI Interfaces), or by means of docker which also contains all the replication package scripts and study cases. Detailed information about the installation can be found in [INSTALL.md](INSTALL.md).
 
 ## Using BeAFix
 
