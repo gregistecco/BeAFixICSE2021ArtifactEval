@@ -3,7 +3,12 @@
 
 ## Installation
 
-No installation step is required. EvoSpex is provided as a jar bundle containing all the required dependencies. Having the tools mentioned in [REQUIREMENTS.md](REQUIREMENTS.md) installed, is enough to run EvoSpex. 
+### Replication package Docker version
+* Install Docker
+* Pull the image *drstein/beafix:2.1.2* by executing docker `pull drstein/beafix:2.1.2` or by using Docker Desktop.
+
+### Running BeAFix natively
+No installation step is required. BeAFix is provided as a jar bundle containing all the required dependencies.
 
 
 You can now continue with the steps described in [README.md](README.md) to reproduce the experiments.

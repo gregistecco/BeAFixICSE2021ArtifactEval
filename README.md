@@ -76,7 +76,7 @@ _granularity didn't have a great impact on the reparability_
 
 BeAFix is in active developement, for that reason, paper's experiments must be replicated using the same version we used at that moment.
 
-Inside the folder containing the replication package contents, the following command must be executed:
+To run the docker, the command is `docker run -it drstein/beafix:2.1.2`. Inside the folder containing the replication package contents, the following command must be executed:
 
 `./runBeAFix.sh BeAFixCLI-2.1.2.jar <path to study case> <depth> <pruning> <timeout> <results folder>.`
 
