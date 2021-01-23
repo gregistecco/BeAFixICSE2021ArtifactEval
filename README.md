@@ -99,7 +99,7 @@ To run all the cases, all Alloy4Fun 2 bugs classroom cases for example, the foll
 
 `find benchmarks/A4F-MB | awk '/Classroom/' | xargs -I {} ./runBeAFix.sh BeAFixCLI-2.1.2.jar {} <depth> <pruning> <timeout> <results folder>`
 
-Be adviced that running the tool in this batch mode for multiple case studies at once can be very time consuming, as the number of case studies is large. We also recommend using meaningful and separate results folder for each run, depth, and pruning configuration. We give a list of commands for each case and pruning configuration using depth 2:
+Be adviced that, depending on the set of cases being run, running the tool in this batch mode for multiple case studies at once can be very time consuming, as the total number of case studies is rather large. We also recommend using meaningful and separate results folder for each run, depth, and pruning configuration. We give a list of commands for each case and pruning configuration using depth 2:
 
 **Alloy4Fun 1 bug cases**
 
@@ -156,5 +156,5 @@ Be adviced that running the tool in this batch mode for multiple case studies at
 Assuming a results folder (called results-depth2 for simplicity), Graphs 2 bugs cases, and pruning:
 
 * Merging : `find results-depth2 | awk '/\.summary$/' | xargs -I {} cat {} >> results.summary`
-* Obtaining not repaired cases: `cat results.summary | grep -v '^.*; true' | sed 's|;.*$||g' >> notRepaired`
+* Obtaining cases not repaired: `cat results.summary | grep -v '^.*; true' | sed 's|;.*$||g' >> notRepaired`
 * Running next depth: `cat notRepaired | xargs -I {} ./runBeAFix.sh BeAFixCLI-2.1.2.jar benchmarks/A4F-MB/{}.als 3 1 60 GRAPHS-2B-PRUNING-DEPTH3`
