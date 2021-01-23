@@ -10,7 +10,7 @@ BeAFix is an automated repair technique for faulty models written in Alloy, a de
 
 BeAFix provides two ways of usage: 
 * A *Command-Line* interface, more suitable to perform batch repairs or to use it in a pipeline with other tools and techniques.
-* A *Graphical User Interface*, that extends Alloy Analyzer, allowing users to launch Alloy repairs using an interface that is more natural for Alloy users, with on-the-fly information about the repair process. 
+* A *Graphical User Interface*, that extends Alloy Analyzer, allowing users to launch Alloy repairs using an interface that is more natural for Alloy users, with  real-time information about the repair process. 
 
 ## Getting and Installing BeAFix
 BeAFix can be obtained by downloading the correponding jar files (Command-Line or GUI Interfaces) to run the tool natively. Alternatively, users can also interact with the tool using Docker, as we provide a container with the replication package scripts and case studies. Detailed information about the installation can be found in [INSTALL.md](INSTALL.md).
@@ -19,7 +19,7 @@ BeAFix can be obtained by downloading the correponding jar files (Command-Line o
 
 ### Command-Line Interface
 
-To run the CLI version you need the corresponding jar file (the one that has CLI in the name) and execute `java -jar <BeAFixCLI jar> --help` to see how to run the tool.
+To run the CLI version you need the corresponding jar file (the one that has CLI in the name). Executing `java -jar <BeAFixCLI jar> --help` you can get all the options on how to run the tool.
 
 ### Graphical User Interface
 
@@ -27,23 +27,23 @@ The GUI version of BeAFix is an extension of the Alloy Analyzer. The following i
 
 ![](Images/BeAFixScreenshotAll.png)
 
-In order to try to repair a faulty alloy specification the user needs to:
-1. Mark the suspicious expressions (can be more than one). A marked expression has the form `{#m#([vars]) expression}` where vars is a comma separated list of variables related to the marked expression, this is used by the variabilization pruning technique. As an example we can consider the following marked expressions:
+In order to attempt to repair a faulty alloy specification using BeAFix, the user needs to:
+1. Mark the suspicious expressions (there can be more than one). A marked expression has the form `{#m#([vars]) expression}` where vars is a comma separated list of variables related to the marked expression (used by the variabilization pruning technique). As an example, consider the following marked expressions:
 
    * `{#m#() some x : T | P[x]}` where the whole quantifier expression is marked for mutation.
 
    * `some x : T | {#m#(x) P[x]}` where only a part of an expression is marked for mutation.
 
-2. At the **Execute** menu, the **Repair** option should be shown and must be selected.
+2. At the **Execute** menu, the **Repair** option is displayed and should be selected to start the repair process.
 
-3. During the reparation process, at the right side panel, BeAFix shows information about the current state, namely: mutated expressions (original and mutated) with its corresponding [mutation operator](APPENDIX.md#mutation-operators), and a the result of evaluating that candidate.
+3. During the repair process, at the right-hand side panel, BeAFix shows information about the current state, namely: mutated expressions (original and mutated) with its corresponding [mutation operator](APPENDIX.md#mutation-operators), and a the result of evaluating that candidate.
 
 4. Finally, a detailed report of the process is shown, including, if found, the fixed specification file.
-   * _The repaired candidate is shown with the mutations used, the repaired specification may have some issues since the candidate writter is very simple_
+   * _The repaired candidate is shown with the mutations used, the repaired specification file may contain redundant parentheses and other issues, since the candidate writer is simple_
 
-5. Aditionally, at the **Option** menu, the user can set a particular configuration for BeAFix. A detailed configuration options can be found [here](APPENDIX.md#-beafix-gui-configuration-options).
+5. Aditionally, at the **Option** menu, the user can set a particular configuration for BeAFix. Details of the configuration options can be found [here](APPENDIX.md#-beafix-gui-configuration-options).
 
-## Reproducing the paper experitments
+## Reproducing the paper experiments
 
 ### Benchmarks
 This replication package contains the benchmarks used in the paper. These can all be found in the benchmarks folder.
@@ -64,19 +64,19 @@ This replication package contains the benchmarks used in the paper. These can al
 
 * **depth4granularity**: 3 of the 5 models with the faulty expression marked with one more level.
 
-_granularity didn't have a great impact on the reparability_
+_granularity did not have a significant impact on reparability_
 
 ### Running the experiments
 
-BeAFix is in active developement, for that reason, paper's experiments must be replicated using the same version we used at that moment.
+BeAFix is in active development. For consistency (especially in running times), the experiments in the paper should be reproduced using the same version we used at the time of the submission (subsequent versions of the tool are also available, with some optimizations that make running times to be reduced with respect to those in the paper, for the same experiments).
 
-To run the docker, the command is `docker run -it drstein/beafix:2.1.2`. Inside the folder containing the replication package contents, the following command must be executed:
+To run the dockerized version of the tool, the command is `docker run -it drstein/beafix:2.1.2`. Inside the folder containing the replication package, the following command should be executed:
 
-`./runBeAFix.sh BeAFixCLI-2.1.2.jar <path to study case> <depth> <pruning> <timeout> <results folder>.`
+`./runBeAFix.sh BeAFixCLI-2.1.2.jar <path to case study> <depth> <pruning> <timeout> <results folder>.`
 
-Where **path to study case** is the full path to an *.als* file inside the benchmarks folder; **depth** is how many mutations to apply to each buggy expression; **pruning** *enables (1)* or *disables (0)* the use of pruning techniques; **timeout** (in minutes) states how much time is allowed to find a fix, the script adds 5 extra minutes to forcefully terminate BeAFix if it didn't finished by itself in the allotted timeout; and **results folder** is where results will be stored (if the folder doesn't exist it will be created, but if it exists it should be empty).
+where **path to case study** is the full path to an *.als* file inside the benchmarks folder; **depth** is how many combinations of mutations to apply to each buggy expression; **pruning** *enables (1)* or *disables (0)* the use of pruning techniques; **timeout** (in minutes) states how much time is alloted to find a fix. The script adds 5 extra minutes to forcefully terminate BeAFix if it did not finish by itself in the allotted timeout; and **results folder** is where results will be stored (if the folder does not exist, it will be created, but if it exists it should be empty).
 
-On our experiments we used depth 2 to 5 (only running cases with an increased depth for cases that were not repaired), and we used 60 minutes as timeout.
+In our experiments we used depth 2 to 5 (only running cases with an increased depth for cases that were not repaired), and we used 60 minutes as timeout. The user is welcome to run all the experiments presented in the paper. Notice however that running all the experiments is costly, due to the large number of different case studies. 
 
 ### Output information details
 
@@ -90,16 +90,16 @@ After running an experiment, the results folder defined when calling the BeAFix 
   * **spuriosity (real/spurious)** a check only done when having a model with oracles that will only be used to validate a fix (none of our experiments use this) this will always be real for this replication package.
   * **the repair** as the modifications done by BeAFix to repair the model (separated by the symbol £).
   * **repair verification** this last value was only used as a debug helper and should be ignored.
-* `<model's name>_repair.als` a repaired model (if a repair was found), this model can sometimes have some issues because the candidate writer was only used as a debug helper. This file can sometimes stay in the same path as the original model.
+* `<model's name>_repair.als` a repaired model (if a repair was found). 
 * `<model's name>_repair.verification` a side product of the last verification process.
-* `<model's name>_summaryLog.log` if BeAFix ended with an error code, this file contains the last 300 lines of some log files generated by BeAFix, this log files are deleted by the `cleanFiles` function in `runBeAFix.sh`, you can avoid this cleaning by commenting the `cleanFiles "$scase"` line.
+* `<model's name>_summaryLog.log` if BeAFix ended with an error code, this file contains the last 300 lines of some log files generated by BeAFix. These log files are deleted by the `cleanFiles` function in `runBeAFix.sh`, you can avoid this cleaning by comenting the `cleanFiles "$scase"` line.
 
 #### Running the experiments per cases
-To run whole cases, all Alloy4Fun 2 bugs classroom cases for example, the following command can be used:
+To run all the cases, all Alloy4Fun 2 bugs classroom cases for example, the following command can be used:
 
 `find benchmarks/A4F-MB | awk '/Classroom/' | xargs -I {} ./runBeAFix.sh BeAFixCLI-2.1.2.jar {} <depth> <pruning> <timeout> <results folder>`
 
-We recommend using meaningful and separate results folder for each run, depth, and pruning configuration, we give a list of commands for each case and pruning configuration using depth 2:
+Be adviced that running the tool in this batch mode for multiple case studies at once can be very time consuming, as the number of case studies is large. We also recommend using meaningful and separate results folder for each run, depth, and pruning configuration. We give a list of commands for each case and pruning configuration using depth 2:
 
 **Alloy4Fun 1 bug cases**
 
