@@ -43,7 +43,7 @@ All mutations are both type checked (although some invalid mutations can happen)
 * **Full call graph validation**: When using any partial repair option, enabling this will result in analyzing all the call graph, instead of a more superficial analysis, default and suggested is true.
 * **Require independent test for all**: When using partial repair, enabling this will require all buggy functions and/or predicated have at least one independent command (only calls one of the buggy functions/predicates) for partial repair to work, instead of allowing partial repair only on those function/predicates that have at least one independent command.
 * **timeout**: Time budget (in minutes) for the repair process (default is 0, unlimited).
-* **Use perfect oracle tests to validate repair**: This will use any command marked by `#po#` to only be used after a repair is found to validate if it is spurious or not, this is only usefull is tests are used instead of property based oracles, default is false.
+* **Use perfect oracle tests to validate repair**: This will use any command marked by `#po#` to only be used after a repair is found to validate if it is spurious or not, this is only useful if tests are used instead of property based oracles, default is false.
 * **Max mutations per expression**: How many mutations are allowed per marked expression (default is 2).
 * **Mutations per candidate** (_*_): The maximum mutant generation that can be achieved, default is 0 (unlimited).
 * **Check mutants with existing command** (_*_): Check each mutant to discard those invalid or semantically equivalent to the original model.
@@ -53,7 +53,7 @@ All mutations are both type checked (although some invalid mutations can happen)
 * **Base test name** (_**_): The base name used for all generated tests, tests will be named `<base name><incrementing index>`.
 * **Base test name starting index** (_**_): Starting index for generated tests names.
 * **Model override folder** (_**_): When _model overrides_ is enabled, this states a folder containing files where the overrides are stored; file name should be `<model>.overrides` and each line must be `type.<name>=<overriding>` where `type` is either `signature`, `field`, or `function`; `name` is the correspoding signature, field, or function name and `overriding` is either `IGNORE` or `type.<name>`. For example: `ordering.overrides` with `field.First=function.first`.
-* **Buggy funcs file** (_**_): Allow to define buggy functions/predicate/facts so test generation can know which can be trusted and which can't. Lines must be `func:<name>` for functions and predicates; `fact:name`for named facts; and `fact:sig:<name>` for signature facts.
+* **Buggy funcs file** (_**_): Allow to define buggy functions/predicate/facts so test generation can know which can be trusted and which can't. Lines must be `func:<name>` for functions and predicates; `fact:<name>`for named facts; and `fact:sig:<name>` for signature facts.
    
 (_*_): Only used for the `Generate mutants` option in `execute` menu.
 (_**_): Only used for the `Generate tests` option in `execute` menu.
