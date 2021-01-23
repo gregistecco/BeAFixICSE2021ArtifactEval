@@ -2,7 +2,7 @@
 
 ### BeAFix: Bounded Exhaustive Search of Alloy Specification Repairs
 
-*Simón Emmanuel Gutiérrez Brida, Germán Regis, Guolong Zheng, Hamid Bagheri, Thanhvu Nguyen, Nazareno Aguirre and Marcelo Frias*
+[comment]: <> (*Simón Emmanuel Gutiérrez Brida, Germán Regis, Guolong Zheng, Hamid Bagheri, Thanhvu Nguyen, Nazareno Aguirre and Marcelo Frias*)
 
 ## Artifact Description
 
