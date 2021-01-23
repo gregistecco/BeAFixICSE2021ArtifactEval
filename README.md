@@ -9,11 +9,11 @@
 BeAFix is an automated repair technique for faulty models written in Alloy, a declarative language based on first-order relational logic. BeAFix is backed with a novel strategy for bounded exhaustive, yet scalable, exploration of the spaces of fix candidates and a formally rigorous, sound pruning of such spaces. Moreover, different from the state-of-the-art in Alloy automated repair, that relies on the availability of unit tests, BeAFix does not require tests and can work with assertions that are naturally used in declarative languages. 
 
 BeAFix provides two ways of usage: 
-* A *Command-Line* process usually used to perform batch reparation process or to use it as complement tool.
-* A *Graphical User Interface* as an extension of Alloy Analyzer, allowing the use of the tool in an interactive way. 
+* A *Command-Line* interface, more suitable to perform batch repairs or to use it in a pipeline with other tools and techniques.
+* A *Graphical User Interface*, that extends Alloy Analyzer, allowing users to launch Alloy repairs using an interface that is more natural for Alloy users, with on-the-fly information about the repair process. 
 
 ## Getting and Installing BeAFix
-BeAFix can be obtaing by downloading the correponding jar files (Command-Line or GUI Interfaces), or by means of docker which also contains all the replication package scripts and study cases. Detailed information about the installation can be found in [INSTALL.md](INSTALL.md).
+BeAFix can be obtained by downloading the correponding jar files (Command-Line or GUI Interfaces) to run the tool natively. Alternatively, users can also interact with the tool using Docker, as we provide a container with the replication package scripts and case studies. Detailed information about the installation can be found in [INSTALL.md](INSTALL.md).
 
 ## Using BeAFix
 
